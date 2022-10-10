@@ -370,27 +370,6 @@ summary(ARIMA_IBCR_RS.1SazDiff)
 #ADF com um valor de teste mais significativo do que a série em nível. Assim, trabalharemos com a série 
 #em sua primeira diferença sazonal.
 
-###4.2 Antes de estimar um modelo VAR com as diferenças, deve se testar se há séries cointegradas.
-# Como há k variáveis (mais de duas), será utilizado o teste de Johansen. As opções da função são:
-  #- x: matriz de dados a ser investigada para cointegração
-  #- Teste a ser conduzido "eigen" ou "trace"
-      #Teste de traço: H0 é que existe r* vetores de cointegração contra a hipótese alternativa de que r>r* vetores.
-#Rejeitada H0 significa que há mais de um vetor de coitegração.
-      #Teste de máximo autovalor (mais robusto (BUENO, 2011)): H0 é que existem r* vetores de cointegração enquanto
-#a alternativa é que existem r*+1 vetores. Verifica qual o máximo autovalor significativo que produz um vetor de 
-#cointegração. Rejeitar H0 significa que há mais de um vetor de cointegração.
-  #- "none": sem intercepto; "const" para termo de constante e "trend" para variável de tendência na cointegração
-  #- K: ordem de defasagem das séries (níveis)
-  #- spec: deteremina a especificação do VECM,
-  #- season: adição de dummies sanozais,
-  #- dumvar: se variáveis dummies devem ser incluídas
-
-jotest<-ca.jo(data, type="eigen", ecdet = "const")
-summary(jotest)
-
-
-
-
 #---------------
 
 ## 5. Definir a ordem "p" para os dados em análise por meio de critérios de informação (escolher modelo com menor AIC, por exemplo)
